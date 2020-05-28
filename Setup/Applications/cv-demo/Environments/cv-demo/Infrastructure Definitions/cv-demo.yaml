@@ -1,0 +1,9 @@
+harnessApiVersion: '1.0'
+type: INFRA_DEFINITION
+cloudProviderType: KUBERNETES_CLUSTER
+deploymentType: KUBERNETES
+infrastructure:
+- type: DIRECT_KUBERNETES
+  cloudProviderName: cv-demo
+  namespace: cv-demo
+  releaseName: release-${infra.kubernetes.infraId}

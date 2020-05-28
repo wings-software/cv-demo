@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: APP_DYNAMICS
+alertEnabled: false
+alertThreshold: 0.5
+analysisTolerance: LOW
+appDynamicsApplicationName: cv-demo
+connectorName: harness_test
+enabled24x7: true
+serviceName: cv-demo
+tierName: cv-backend-tier

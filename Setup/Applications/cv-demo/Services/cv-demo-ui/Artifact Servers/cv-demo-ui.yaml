@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: GCR
+dockerImageName: playground-243019/cv-demo-ui
+registryHostName: us.gcr.io
+serverName: Playground GCR
