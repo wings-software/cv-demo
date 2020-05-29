@@ -1,9 +1,0 @@
-harnessApiVersion: '1.0'
-type: NEW_RELIC
-alertEnabled: false
-alertThreshold: 0.5
-analysisTolerance: LOW
-connectorName: new_relic
-enabled24x7: true
-newRelicApplicationName: cv-demo
-serviceName: cv-demo
