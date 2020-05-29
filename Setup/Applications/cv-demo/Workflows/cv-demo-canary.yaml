@@ -50,7 +50,7 @@ phases:
     - type: PROMETHEUS
       name: Prometheus
       properties:
-        analysisServerConfigId: cXM_UNdqQSuUcPVHsryopg
+        analysisServerConfigId: Select Prometheus connector
         analysisTolerance: LOW
         comparisonStrategy: COMPARE_WITH_CURRENT
         customThresholdRefId: 0034526e5f2a4a3ea97011a559dda999
@@ -70,7 +70,7 @@ phases:
     - type: ELK
       name: ELK
       properties:
-        analysisServerConfigId: y0oZeyydR_ui_sab5DKHXg
+        analysisServerConfigId: Select ELK connector
         comparisonStrategy: COMPARE_WITH_CURRENT
         executeWithPreviousSteps: true
         hostnameField: hostname
