@@ -5,10 +5,10 @@ env:
     # AppDynamics Settings
     # ENABLE_APPDYNAMICS: true
     # CATALINA_OPTS: -javaagent:/opt/cv-demo/AppServerAgent-4.3.8.0/javaagent.jar -Dappdynamics.agent.nodeName=$(hostname)
-    # APPDYNAMICS_AGENT_ACCOUNT_NAME: account-name
+    # APPDYNAMICS_AGENT_ACCOUNT_NAME: your-account-name
     # APPDYNAMICS_AGENT_APPLICATION_NAME: cv-demo
     # APPDYNAMICS_AGENT_TIER_NAME: tier-name
-    # APPDYNAMICS_CONTROLLER_HOST_NAME: hostname.saas.appdynamics.com
+    # APPDYNAMICS_CONTROLLER_HOST_NAME: your-account-name.saas.appdynamics.com
     # APPDYNAMICS_CONTROLLER_PORT: 443
     # APPDYNAMICS_CONTROLLER_SSL_ENABLED: true
 
@@ -18,7 +18,7 @@ env:
     # NEW_RELIC_APP_NAME: cv-demo
     
 
-  secret:
+#  secret:
     # AppDynamics Settings
     # APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY: # use secrets.getValue expression
 

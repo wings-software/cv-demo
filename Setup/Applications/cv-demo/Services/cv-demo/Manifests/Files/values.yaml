@@ -1,26 +1,11 @@
 name: cv-demo
-
 image: ${artifact.metadata.image}
 
 env:
   config:
-    # Override in environment with ingress controller load balancer IP or host
-    ALLOWED_ORIGINS: http://127.0.0.1
-
     # ELK Settings
     ELK_URL: http://elasticsearch-loadbalancer/
     ELK_INDEX: cv-demo
 
-    # AppDynamics Settings - Override in environment to enable
-    ENABLE_APPDYNAMICS: false
-    CATALINA_OPTS: -javaagent:/usr/local/AppServerAgent-4.3.8.0/javaagent.jar -Dappdynamics.agent.nodeName=$(hostname)
-    APPDYNAMICS_AGENT_ACCOUNT_NAME: your-account-name
-    APPDYNAMICS_AGENT_APPLICATION_NAME: cv-demo
-    APPDYNAMICS_AGENT_TIER_NAME: tier-name
-    APPDYNAMICS_CONTROLLER_HOST_NAME: your-account-name.saas.appdynamics.com
-    APPDYNAMICS_CONTROLLER_PORT: 443
-    APPDYNAMICS_CONTROLLER_SSL_ENABLED: true
-
   secret: {}
-    # AppDynamics Settings
-    # APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY: <Secret reference to your access key>
+
