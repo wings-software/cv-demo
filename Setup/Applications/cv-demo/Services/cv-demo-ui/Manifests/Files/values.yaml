@@ -1,5 +1,4 @@
 name: cv-demo-ui
-namespace: ${infra.kubernetes.namespace}
 image: ${artifact.metadata.image}
 replicas: 1
 
