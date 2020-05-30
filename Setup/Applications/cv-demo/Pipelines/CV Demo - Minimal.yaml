@@ -9,6 +9,13 @@ pipelineStages:
   stageName: STAGE 1
   workflowName: prometheus
 - type: ENV_STATE
+  name: elastic-search
+  parallel: true
+  skipCondition:
+    type: DO_NOT_SKIP
+  stageName: STAGE 1
+  workflowName: elastic-search
+- type: ENV_STATE
   name: cv-demo
   parallel: true
   skipCondition:
