@@ -8,14 +8,6 @@ failureStrategies:
   - APPLICATION_ERROR
   repairActionCode: ROLLBACK_WORKFLOW
   retryCount: 0
-notificationRules:
-- conditions:
-  - FAILED
-  executionScope: WORKFLOW
-  notificationGroupAsExpression: false
-  userGroupAsExpression: false
-  userGroupIds:
-  - GXFtTUS2Q9Gmo1r4MhqS4g
 phases:
 - type: KUBERNETES
   computeProviderName: cv-demo
