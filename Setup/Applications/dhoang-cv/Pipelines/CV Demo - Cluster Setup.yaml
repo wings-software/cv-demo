@@ -1,0 +1,43 @@
+harnessApiVersion: '1.0'
+type: PIPELINE
+pipelineStages:
+- type: ENV_STATE
+  name: ingress-controller
+  parallel: false
+  skipCondition:
+    type: DO_NOT_SKIP
+  stageName: STAGE 1
+  workflowName: nginx-ingress-controller
+- type: ENV_STATE
+  name: prometheus
+  parallel: true
+  skipCondition:
+    type: DO_NOT_SKIP
+  stageName: STAGE 1
+  workflowName: prometheus
+- type: ENV_STATE
+  name: elastic-search
+  parallel: true
+  skipCondition:
+    type: DO_NOT_SKIP
+  stageName: STAGE 1
+  workflowName: elastic-search
+- type: ENV_STATE
+  name: cv-demo
+  parallel: true
+  skipCondition:
+    type: DO_NOT_SKIP
+  stageName: STAGE 1
+  workflowName: cv-demo-canary
+  workflowVariables:
+  - name: verify_canary
+    value: 'no'
+  - name: metric_verification
+    value: Prometheus
+- type: ENV_STATE
+  name: cv-demo-ui
+  parallel: true
+  skipCondition:
+    type: DO_NOT_SKIP
+  stageName: STAGE 1
+  workflowName: cv-demo-ui
