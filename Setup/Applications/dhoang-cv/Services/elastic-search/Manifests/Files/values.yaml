@@ -1,3 +1,0 @@
-namespace: ${infra.kubernetes.namespace}
-
-loadBalancerIP: ""
