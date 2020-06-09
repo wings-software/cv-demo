@@ -2,14 +2,14 @@ harnessApiVersion: '1.0'
 type: SERVICE
 artifactType: DOCKER
 configVariables:
-- name: baseUrl
-  value: http://localhost:8080
+- name: canaryEndpoint
+  value: ${serviceVariable.baseUrl}/canary
   valueType: TEXT
 - name: stableEndpoint
   value: ${serviceVariable.baseUrl}/api
   valueType: TEXT
-- name: canaryEndpoint
-  value: ${serviceVariable.baseUrl}/canary
+- name: baseUrl
+  value: http://localhost:8080
   valueType: TEXT
 deploymentType: KUBERNETES
 helmVersion: V2
