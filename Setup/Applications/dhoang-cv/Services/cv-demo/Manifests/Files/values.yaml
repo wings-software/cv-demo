@@ -1,0 +1,11 @@
+name: cv-demo
+image: ${artifact.metadata.image}
+
+env:
+  config:
+    # ELK Settings
+    ELK_URL: http://elasticsearch-loadbalancer/
+    ELK_INDEX: cv-demo
+
+  secret: {}
+

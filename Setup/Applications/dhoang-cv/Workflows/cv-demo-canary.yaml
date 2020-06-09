@@ -1,0 +1,218 @@
+harnessApiVersion: '1.0'
+type: CANARY
+concurrencyStrategy: INFRA
+envName: cv-demo
+failureStrategies:
+- executionScope: WORKFLOW
+  failureTypes:
+  - APPLICATION_ERROR
+  repairActionCode: ROLLBACK_WORKFLOW
+  retryCount: 0
+phases:
+- type: KUBERNETES
+  computeProviderName: cv-demo
+  daemonSet: false
+  infraDefinitionName: cv-demo
+  name: Canary
+  phaseSteps:
+  - type: K8S_PHASE_STEP
+    name: Deploy
+    steps:
+    - type: K8S_CANARY_DEPLOY
+      name: Canary Deployment
+      properties:
+        instanceUnitType: COUNT
+        instances: '1'
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    failureStrategies:
+    - failureTypes:
+      - APPLICATION_ERROR
+      repairActionCode: MANUAL_INTERVENTION
+      retryCount: 0
+    name: Verify
+    stepSkipStrategies:
+    - assertionExpression: ${workflow.variables.metric_verification} != "NewRelic" || ${workflow.variables.verify_canary} == "no"
+      scope: SPECIFIC_STEPS
+      steps:
+      - New Relic
+    - assertionExpression: ${workflow.variables.metric_verification} != "AppD" || ${workflow.variables.verify_canary} == "no"
+      scope: SPECIFIC_STEPS
+      steps:
+      - AppDynamics
+    - assertionExpression: ${workflow.variables.verify_canary} == "no"
+      scope: SPECIFIC_STEPS
+      steps:
+      - Prometheus
+      - ELK
+      - Approval
+    steps:
+    - type: PROMETHEUS
+      name: Prometheus
+      properties:
+        analysisServerConfigId: Select Prometheus connector
+        analysisTolerance: LOW
+        comparisonStrategy: COMPARE_WITH_CURRENT
+        customThresholdRefId: 0034526e5f2a4a3ea97011a559dda999
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
+        timeDuration: 10
+        timeSeriesToAnalyze:
+        - metricName: normal_call
+          metricType: THROUGHPUT
+          txnName: custom
+          url: io_harness_custom_metric_normal_call{kubernetes_pod_name="$hostName"}
+        - metricName: error_call
+          metricType: ERROR
+          txnName: custom
+          url: io_harness_custom_metric_error_call{kubernetes_pod_name="$hostName"}
+    - type: ELK
+      name: ELK
+      properties:
+        analysisServerConfigId: Select ELK connector
+        comparisonStrategy: COMPARE_WITH_CURRENT
+        executeWithPreviousSteps: true
+        hostnameField: hostname
+        includePreviousPhaseNodes: false
+        indices: cv-demo
+        messageField: message
+        query: level:ERROR
+        queryType: MATCH
+        timeDuration: 5
+        timestampField: '@timestamp'
+        timestampFormat: yyyy-MM-dd'T'HH:mm:ss.SSSX
+    - type: APP_DYNAMICS
+      name: AppDynamics
+      properties:
+        analysisServerConfigId: UeL6VqdfToGq1YcMW143Rw
+        analysisTolerance: LOW
+        applicationId: '97289'
+        comparisonStrategy: COMPARE_WITH_CURRENT
+        executeWithPreviousSteps: true
+        hostnameTemplate: ${host.hostName}
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
+        tierId: '544140'
+        timeDuration: '10'
+    - type: NEW_RELIC
+      name: New Relic
+      properties:
+        analysisServerConfigId: iYU27hjeQ4u-8Y6xr3CF_g
+        analysisTolerance: LOW
+        applicationId: '621819515'
+        comparisonStrategy: COMPARE_WITH_CURRENT
+        customThresholdRefId: 2f0391c47265474aac8dd39c9a49f096
+        executeWithPreviousSteps: true
+        includePreviousPhaseNodes: false
+        timeDuration: '10'
+    - type: APPROVAL
+      name: Approval
+      properties:
+        approvalStateType: USER_GROUP
+        timeoutMillis: 3600000
+        userGroups: null
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Wrap Up
+    steps:
+    - type: K8S_DELETE
+      name: Delete Canary
+      properties:
+        deleteNamespacesForRelease: false
+        instanceUnitType: COUNT
+        resources: ${k8s.canaryWorkload}
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: cv-demo
+  statefulSet: false
+- type: KUBERNETES
+  computeProviderName: cv-demo
+  daemonSet: false
+  infraDefinitionName: cv-demo
+  name: Primary
+  phaseSteps:
+  - type: K8S_PHASE_STEP
+    name: Deploy
+    steps:
+    - type: K8S_DEPLOYMENT_ROLLING
+      name: Rollout Deployment
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Verify
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Wrap Up
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: cv-demo
+  statefulSet: false
+rollbackPhases:
+- type: KUBERNETES
+  computeProviderName: cv-demo
+  daemonSet: false
+  infraDefinitionName: cv-demo
+  name: Rollback Canary
+  phaseNameForRollback: Canary
+  phaseSteps:
+  - type: K8S_PHASE_STEP
+    name: Deploy
+    phaseStepNameForRollback: Deploy
+    statusForRollback: SUCCESS
+    steps:
+    - type: K8S_DELETE
+      name: Delete Canary
+      properties:
+        deleteNamespacesForRelease: false
+        resources: ${k8s.canaryWorkload}
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Wrap Up
+    phaseStepNameForRollback: Wrap Up
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: cv-demo
+  statefulSet: false
+- type: KUBERNETES
+  computeProviderName: cv-demo
+  daemonSet: false
+  infraDefinitionName: cv-demo
+  name: Rollback Primary
+  phaseNameForRollback: Primary
+  phaseSteps:
+  - type: K8S_PHASE_STEP
+    name: Deploy
+    phaseStepNameForRollback: Deploy
+    statusForRollback: SUCCESS
+    steps:
+    - type: K8S_DEPLOYMENT_ROLLING_ROLLBACK
+      name: Rollback Deployment
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Wrap Up
+    phaseStepNameForRollback: Wrap Up
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: cv-demo
+  statefulSet: false
+templatized: true
+userVariables:
+- type: TEXT
+  allowedValues: yes,no
+  fixed: false
+  mandatory: true
+  name: verify_canary
+  value: 'yes'
+- type: TEXT
+  allowedValues: Prometheus, AppD, NewRelic
+  fixed: false
+  mandatory: true
+  name: metric_verification
+  value: Prometheus
