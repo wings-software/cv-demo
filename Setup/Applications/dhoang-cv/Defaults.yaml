@@ -9,3 +9,5 @@ defaults:
   value: $HOME/${app.name}/${service.name}/${env.name}/staging/${timestampId}
 - name: WINDOWS_RUNTIME_PATH
   value: '%USERPROFILE%\${app.name}\${service.name}\${env.name}\runtime'
+- name: MAC_RUNTIME_PATH
+  value: '%USERPROFILE%\${app.name}\${service.name}\${env.name}\runtime2'
