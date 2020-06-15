@@ -1,5 +1,3 @@
-#test comment
-
 harnessApiVersion: '1.0'
 type: APPLICATION_DEFAULTS
 defaults:
