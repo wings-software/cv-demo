@@ -3,11 +3,11 @@ type: APPLICATION_DEFAULTS
 defaults:
 - name: BACKUP_PATH
   value: $HOME/${app.name}/${service.name}/${env.name}/backup/${timestampId}
+- name: MAC_RUNTIME_PATHy
+  value: '%USERPROFILE%\${app.name}\${service.name}\${env.name}\runtime2'
 - name: RUNTIME_PATH
   value: $HOME/${app.name}/${service.name}/${env.name}/runtime
 - name: STAGING_PATH
   value: $HOME/${app.name}/${service.name}/${env.name}/staging/${timestampId}
 - name: WINDOWS_RUNTIME_PATH
   value: '%USERPROFILE%\${app.name}\${service.name}\${env.name}\runtime'
-- name: MAC_RUNTIME_PATH
-  value: '%USERPROFILE%\${app.name}\${service.name}\${env.name}\runtime2'
