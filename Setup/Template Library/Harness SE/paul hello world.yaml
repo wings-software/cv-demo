@@ -1,0 +1,14 @@
+harnessApiVersion: '1.0'
+type: SSH
+commandUnitType: OTHER
+commandUnits:
+- command: |-
+    echo "Hello World"
+    export PAUL_VAR=${paulVar}
+    echo $PAUL_VAR
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Exec
+  scriptType: BASH
+variables:
+- name: paulVar

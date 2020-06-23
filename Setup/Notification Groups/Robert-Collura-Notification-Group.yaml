@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: NOTIFICATION_GROUP
+addresses:
+- channelType: EMAIL
+- addresses:
+  - '#harness-notifications'
+  channelType: SLACK
+defaultNotificationGroupForAccount: 'false'

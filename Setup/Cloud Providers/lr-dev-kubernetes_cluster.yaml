@@ -1,0 +1,21 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+delegateName: lr-local-env
+skipValidation: false
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      entityNames:
+      - Luis Redda
+      filterType: SELECTED
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      entityNames:
+      - Luis Redda
+      filterType: SELECTED
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useKubernetesDelegate: true

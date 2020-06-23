@@ -1,0 +1,21 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+delegateName: luke-cluster-bootstrapping
+skipValidation: false
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      entityNames:
+      - Cluster Bootstrapping
+      filterType: SELECTED
+    envFilter:
+      filterTypes:
+      - NON_PROD
+  - appFilter:
+      entityNames:
+      - Cluster Bootstrapping
+      filterType: SELECTED
+    envFilter:
+      filterTypes:
+      - PROD
+useKubernetesDelegate: true

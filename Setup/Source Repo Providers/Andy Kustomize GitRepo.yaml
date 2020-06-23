@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:GsygR7ClQmOmyxOw0Wkq3w
+url: https://github.com/andydpage/kustomize.git
+username: andydpage

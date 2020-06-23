@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: DOCKER
+password: gcpkms:fJLgv4-DQ-O0NXgiMp_cjA
+url: https://registry.hub.docker.com/v2/
+username: asv108

@@ -1,0 +1,23 @@
+harnessApiVersion: '1.0'
+type: SSH
+commandUnitType: OTHER
+commandUnits:
+- command: |-
+    export ARTIFACT_PATH=${artifactPath}
+    echo "The value of ARTIFACT_PATH is"
+    echo $ARTIFACT_PATH
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Assign value to ARTIFACT_PATH
+  scriptType: BASH
+- command: |-
+    export TARGET_IP=${targetIP}
+    echo "The value of TARGET_IP is:"
+    echo $TARGET_IP
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Assign value to TARGET_IP
+  scriptType: BASH
+variables:
+- name: artifactPath
+- name: targetIP

@@ -1,0 +1,51 @@
+harnessApiVersion: '1.0'
+type: SSH
+commandUnitType: START
+commandUnits:
+- command: ./startup.sh
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Start Service
+  scriptType: BASH
+  workingDirectory: ${RuntimePath}/tomcat/bin
+- command: |-
+    set -x
+    i=0
+    while [ "$i" -lt 30 ]
+    do
+        pgrep -f "\-Dcatalina.home=${RuntimePath}/tomcat"
+        rc=$?
+        if [ "$rc" -eq 0 ]
+        then
+            exit 0
+            sleep 1
+            i=$((i+1))
+        else
+            sleep 1
+            i=$((i+1))
+        fi
+    done
+    exit 1
+  commandUnitType: PROCESS_CHECK_RUNNING
+  deploymentType: SSH
+  name: Process Running
+  scriptType: BASH
+- command: |-
+    set -x
+    server_xml="${RuntimePath}/tomcat/conf/server.xml"
+
+    if [ -f "$server_xml" ]
+    then
+    port=$(grep "<Connector[ ]*port=\"[0-9]*\"[ ]*protocol=\"HTTP/1.1\"" "$server_xml" |cut -d '"' -f2)
+    nc -v -z -w 5 localhost $port
+    else
+      echo "Tomcat config file("$server_xml") does not exist.. port check failed."
+      exit 1
+    fi
+  commandUnitType: PORT_CHECK_LISTENING
+  deploymentType: SSH
+  name: Port Listening
+  scriptType: BASH
+variables:
+- description: Runtime path to install binaries.
+  name: RuntimePath

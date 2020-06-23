@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: DOCKER
+password: gcpkms:0cEDOSnIS_ekNebKBVEm2g
+url: https://index.docker.io/v2/
+username: clucca13

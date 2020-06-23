@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:_eQAoNUmSyiMoSYM3j8grA
+url: https://github.com/andydpage/k8s_manifests.git
+username: andydpage

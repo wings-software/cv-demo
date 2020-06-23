@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+commitMessage: test -f
+keyAuth: false
+password: gcpkms:Xh60qI_gRGiOxo8chK06aw
+url: https://github.com/andydpage/harness-config.git
+username: andydpage

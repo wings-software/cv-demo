@@ -1,0 +1,13 @@
+harnessApiVersion: '1.0'
+type: HTTP
+assertion: ${httpResponseCode}==${ResponseCode}
+header: 'content-type: application/json'
+method: GET
+timeoutMillis: 0
+url: ${Url}
+variables:
+- description: Url to verify the status
+  name: Url
+- description: Response code to verify status
+  name: ResponseCode
+  value: '200'

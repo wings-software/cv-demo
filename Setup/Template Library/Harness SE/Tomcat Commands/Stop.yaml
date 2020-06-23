@@ -1,0 +1,51 @@
+harnessApiVersion: '1.0'
+type: SSH
+commandUnitType: STOP
+commandUnits:
+- command: '[ -f ./shutdown.sh ] && ./shutdown.sh  || true'
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Stop Service
+  scriptType: BASH
+  workingDirectory: ${RuntimePath}/tomcat/bin
+- command: |-
+    i=0
+    while [ "$i" -lt 30 ]
+    do
+        pgrep -f "\-Dcatalina.home=${RuntimePath}/tomcat"
+        rc=$?
+        if [ "$rc" -eq 0 ]
+        then
+            sleep 1
+            i=$((i+1))
+        else
+            exit 0
+        fi
+    done
+    exit 1
+  commandUnitType: PROCESS_CHECK_STOPPED
+  deploymentType: SSH
+  name: Process Stopped
+  scriptType: BASH
+- command: |-
+    set -x
+    server_xml="${RuntimePath}/tomcat/conf/server.xml"
+    if [ -f "$server_xml" ]
+    then
+    port=$(grep "<Connector[ ]*port=\"[0-9]*\"[ ]*protocol=\"HTTP/1.1\"" "$server_xml" |cut -d '"' -f2)
+    nc -v -z -w 5 localhost $port
+    rc=$?
+    if [ "$rc" -eq 0 ]
+    then
+    exit 1
+    fi
+    else
+      echo "Tomcat config file("$server_xml") does not exist.. skipping port check."
+    fi
+  commandUnitType: PORT_CHECK_CLEARED
+  deploymentType: SSH
+  name: Port Cleared
+  scriptType: BASH
+variables:
+- description: Runtime path to install binaries.
+  name: RuntimePath

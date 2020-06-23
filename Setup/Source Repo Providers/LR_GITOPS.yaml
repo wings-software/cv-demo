@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:duwKyAivS1m-GdZW-KXy4Q
+url: https://github.com/luisredda/harness-repo
+username: luisredda

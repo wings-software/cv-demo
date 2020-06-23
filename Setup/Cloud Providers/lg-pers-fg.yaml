@@ -1,0 +1,17 @@
+harnessApiVersion: '1.0'
+type: AWS
+assumeCrossAccountRole: false
+tag: lg-fg
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useEc2IamCredentials: true

@@ -1,0 +1,76 @@
+harnessApiVersion: '1.0'
+type: SSH
+commandUnitType: INSTALL
+commandUnits:
+- command: |2-
+
+    # Execute as root and pass environment variables
+    # su -p -
+
+    # Execute as root via user credentials (with root privileges)
+    # sudo -E su -p -
+
+    # The following variables are absolute paths defined as:
+    # ${HOME}/${appName}/${serviceName}/${serviceTemplateName}/[runtime|backup|staging]
+
+    mkdir -p "${RunTimePath}"
+    mkdir -p "${BackupPath}"
+    mkdir -p "${StagingPath}"
+  commandUnitType: SETUP_ENV
+  deploymentType: SSH
+  name: Setup Runtime Paths
+  scriptType: BASH
+- commandUnitType: COMMAND
+  name: Stop
+  templateUri: Harness SE/JBoss Commands/Stop
+- artifactVariableName: artifact
+  commandUnitType: SCP
+  deploymentType: SSH
+  destinationDirectoryPath: ${RuntimePath}
+  name: Copy App Stack
+  source: APPLICATION_STACK
+- command: |-
+    rm -rf jboss
+    rm -rf ${JbossBinaryName}
+    tar xzvf ${JbossBinaryName}.tar.gz
+    ln -s ${JbossBinaryaName} jboss
+    chmod +x jboss/bin/*
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Expand App Stack
+  scriptType: BASH
+  workingDirectory: ${RuntimePath}
+- artifactVariableName: artifact
+  commandUnitType: SCP
+  deploymentType: SSH
+  destinationDirectoryPath: ${RuntimePath}
+  name: Copy Artifact
+  source: ARTIFACTS
+- command: |-
+    mkdir -p "${ArtifactFileName}"
+    touch "${ArtifactFileName}".dodeploy
+    cd "${ArtifactFileName}"
+    jar xvf "${RuntimePath}/${ArtifactFileName}"
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Expand Artifact
+  scriptType: BASH
+  workingDirectory: ${RuntimePath}/jboss/standalone/deployments
+- commandUnitType: COPY_CONFIGS
+  deploymentType: SSH
+  destinationParentPath: $RUNTIME_PATH
+  name: Copy Configs
+- commandUnitType: COMMAND
+  name: Start
+  templateUri: Harness SE/JBoss Commands/Start
+variables:
+- description: Runtime path to install binaries.
+  name: RuntimePath
+- description: Backup path.
+  name: BackupPath
+- description: Staging path.
+  name: StagingPath
+- description: Artifact file name to be copied
+  name: ArtifactFileName
+- description: Jboss 7 tar file.
+  name: JbossBinaryName

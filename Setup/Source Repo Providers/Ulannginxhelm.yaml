@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:odqXWQa8QLS4x4H-JeHEnQ
+url: https://github.com/ubekishov/nginx.git
+username: ubekisho@gmail.com

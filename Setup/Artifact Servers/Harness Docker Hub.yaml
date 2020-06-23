@@ -1,0 +1,3 @@
+harnessApiVersion: '1.0'
+type: DOCKER
+url: https://registry.hub.docker.com/v2/

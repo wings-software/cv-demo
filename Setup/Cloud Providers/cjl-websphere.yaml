@@ -1,0 +1,18 @@
+harnessApiVersion: '1.0'
+type: PHYSICAL_DATA_CENTER
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      entityNames:
+      - cjl-websphere
+      filterType: SELECTED
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      entityNames:
+      - cjl-websphere
+      filterType: SELECTED
+    envFilter:
+      filterTypes:
+      - NON_PROD

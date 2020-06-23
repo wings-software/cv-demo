@@ -1,0 +1,51 @@
+harnessApiVersion: '1.0'
+type: SSH
+commandUnitType: START
+commandUnits:
+- command: nohup ./standalone.sh &
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Start Service
+  scriptType: BASH
+  workingDirectory: ${RuntimePath}/jboss/bin
+- command: |-
+    set -x
+    i=0
+    while [ "$i" -lt 30 ]
+    do
+      pgrep -f "\-Djboss.home.dir="${RuntimePath}"/jboss"
+      rc=$?
+      if [ "$rc" -eq 0 ]
+      then
+        exit 0
+        sleep 1
+        i=$((i+1))
+      else
+        sleep 1
+        i=$((i+1))
+      fi
+    done
+    exit 1
+  commandUnitType: PROCESS_CHECK_RUNNING
+  deploymentType: SSH
+  name: Process Running
+  scriptType: BASH
+- command: |-
+    set -x
+    standalone_xml="${RuntimePath}/jboss/standalone/configuration/standalone.xml"
+
+    if [ -f "$standalone_xml" ]
+    then
+    port=$(grep "<socket-binding name=\"http\" port=\"\${jboss.http.port" "$standalone_xml" | cut -d ":" -f2 | cut -d "}" -f1)
+    nc -v -z -w 5 localhost $port
+    else
+     echo "JBoss config file("$standalone_xml") does not exist.. port check failed."
+     exit 1
+    fi
+  commandUnitType: PORT_CHECK_LISTENING
+  deploymentType: SSH
+  name: Port Listening
+  scriptType: BASH
+variables:
+- description: Runtime path to install binaries.
+  name: RuntimePath

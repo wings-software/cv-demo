@@ -1,0 +1,19 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: true
+password: gcpkms:3SJnWemCRlCZq2op5oYV6w
+sshKeyName: rc-harness-gitops
+url: git@github.com:robertcollura/harness-gitops.git
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD

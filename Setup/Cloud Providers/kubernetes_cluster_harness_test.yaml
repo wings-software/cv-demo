@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+delegateName: harness-delegate-kubernetes
+masterUrl: https://34.67.13.218/
+serviceAccountToken: gcpkms:DQF-DFtTRFmPX4LxbAhhew
+skipValidation: false
+useKubernetesDelegate: false

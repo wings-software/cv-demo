@@ -1,0 +1,12 @@
+harnessApiVersion: '1.0'
+type: SSH
+commandUnitType: OTHER
+commandUnits:
+- commandUnitType: EXEC
+  deploymentType: SSH
+  name: Exec
+  scriptType: BASH
+- commandUnitType: EXEC
+  deploymentType: SSH
+  name: Exec-1
+  scriptType: BASH

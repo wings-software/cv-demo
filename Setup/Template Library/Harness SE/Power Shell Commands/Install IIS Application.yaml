@@ -1,0 +1,80 @@
+harnessApiVersion: '1.0'
+type: SSH
+commandUnitType: INSTALL
+commandUnits:
+- artifactVariableName: artifact
+  commandUnitType: DOWNLOAD_ARTIFACT
+  deploymentType: SSH
+  name: Download Artifact
+  scriptType: POWERSHELL
+  workingDirectory: ${DownloadDirectory}
+- command: |-
+    $serviceName="${service.Name}"
+    $releaseId="${workflow.ReleaseNo}"
+    $artifactFilename = "${DownloadDirectory}" + "\" + "${artifact.fileName}"
+    $appPhysicalDirectory="${AppPhysicalDirectory}" + "\Artifacts\" + $serviceName + "\release-" + $releaseId
+
+    # Check if artifact is File or Folder structure
+    $isFile = Test-Path -Path $artifactFilename -PathType Leaf
+    $isFolder = Test-Path -Path $artifactFilename -PathType Container
+     if ($isFile -and ([IO.Path]::GetExtension($artifactFilename) -eq ".zip" ))
+    {
+        Write-Host "Extracting package from" $artifactFilename "to" $appPhysicalDirectory
+        Expand-Archive -Path $artifactFilename -DestinationPath $appPhysicalDirectory -Force
+    }
+    else
+    {
+        Write-Host "Artifact type is not a zip file. Skipping extract."
+    }
+    if ($isFolder)
+    {
+        Write-Host "Copying folder from" $artifactFilename "to" $appPhysicalDirectory
+        Copy-Item -Path $artifactFilename -Filter "*.*" -Recurse -Destination $appPhysicalDirectory -Container
+    }
+    Write-Host "Done."
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Expand Artifacts
+  scriptType: POWERSHELL
+- commandUnitType: COPY_CONFIGS
+  deploymentType: SSH
+  destinationParentPath: ${DownloadDirectory}
+  name: Copy Configs
+- command: |-
+    Import-Module WebAdministration
+
+    $siteName="Default Web Site"
+    $releaseId="${workflow.ReleaseNo}"
+    $virtualDirectoryName="${service.Name}"
+    $appPhysicalDirectory="${AppPhysicalDirectory}" + "\Artifacts\" + $virtualDirectoryName + "\release-" + $releaseId
+
+    # Copy configs to application directory
+    $userProfile = "$env:userprofile"
+    Copy-Item -Path "$userProfile\\${app.name}\\${service.name}\\${env.name}\\runtime\\*.config" -Destination $appPhysicalDirectory -Force
+
+    Write-Host "Creating Virtual Directory" $virtualDirectoryName ".."
+    $VirtualDirPath = 'IIS:\Sites\' + $siteName + '\' + $virtualDirectoryName
+    New-Item -Path $VirtualDirPath -Type VirtualDirectory -PhysicalPath $appPhysicalDirectory -Force
+
+    Write-Host "Done."
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Create Virtual Directory
+  scriptType: POWERSHELL
+variables:
+- description: ReleaseId.
+  name: ReleaseNo
+- description: Service Name
+  name: ServiceName
+- description: Default Application Pool
+  name: AppPoolName
+  value: DefaultAppPool
+- description: Application pool DotNet Version
+  name: AppPoolDotNetVersion
+  value: v4.0
+- description: Download Directory
+  name: DownloadDirectory
+  value: $env:TEMP
+- description: App Physical Base Directory
+  name: AppPhysicalDirectory
+  value: $env:SYSTEMDRIVE

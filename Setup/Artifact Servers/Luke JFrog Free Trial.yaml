@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: ARTIFACTORY
+password: gcpkms:D4MkAhPmTjmm4teGjPzkfQ
+url: https://lukeharnesstest.jfrog.io/artifactory
+username: admin

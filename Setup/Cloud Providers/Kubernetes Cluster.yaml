@@ -1,0 +1,17 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+delegateName: patrick-harness-se-minikube
+skipValidation: false
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useKubernetesDelegate: true

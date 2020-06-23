@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: ARTIFACTORY
+password: gcpkms:-OGxeqlgShu0vwZmntgluw
+url: http://192.168.99.100:8081/artifactory/
+username: admin

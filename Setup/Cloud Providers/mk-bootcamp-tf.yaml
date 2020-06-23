@@ -1,0 +1,18 @@
+harnessApiVersion: '1.0'
+type: AWS
+assumeCrossAccountRole: false
+secretKey: gcpkms:BHoBxt3aRzyPsE7eEkVufg
+tag: mk-tf
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useEc2IamCredentials: true

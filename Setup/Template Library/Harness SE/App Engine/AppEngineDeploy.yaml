@@ -1,0 +1,34 @@
+harnessApiVersion: '1.0'
+type: SHELL_SCRIPT
+scriptString: |-
+  mkdir  -p ${folder}
+  cd  ${folder}
+  #taking the second part of the path.  May not be needed for all use cases, so add some logic.
+  artiname="$(cut -d'/' -f2 <<<"${arti}")"
+  echo "$artiname"
+  echo "artifact is " ${arti}
+  echo "artifactpath is " ${atibucket}/${artipath}
+  echo "projectid is " ${projectid}
+  echo "folder is " ${folder}
+  echo "We are working from:"
+  pwd
+  echo "these files exist"
+  ls
+  gsutil cp gs://${atibucket}/${artipath} .
+  tar -xvzf $artiname
+  #tar -xvzf helloworld.tar.gz
+  gcloud app deploy --account=bigfish-test-264717@appspot.gserviceaccount.com --project=bigfish-test-264717
+  #gcloud app deploy --project=bigfish-test-264717
+scriptType: BASH
+timeoutMillis: 600000
+variables:
+- name: folder
+  value: helloworld
+- name: arti
+  value: helloworld.tar.gz
+- name: artipath
+  value: bigfishtest/helloworld.tar.gz
+- name: projectid
+  value: bigfish-test-264717
+- name: atibucket
+  value: bigfish-test-264717.appspot.com

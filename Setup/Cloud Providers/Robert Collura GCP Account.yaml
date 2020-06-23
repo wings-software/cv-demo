@@ -1,0 +1,3 @@
+harnessApiVersion: '1.0'
+type: GCP
+serviceAccountKeyFileContent: gcpkms:yBHyIj-0R6Ci2T8iaJFsDQ

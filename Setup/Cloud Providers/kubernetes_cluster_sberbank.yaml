@@ -1,0 +1,23 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+caCert: gcpkms:fimNatBdRrmGQ93qXlNFtw
+clientCert: gcpkms:uaF6-9GLTs2uNjE8rdK2CA
+clientKey: gcpkms:gtAjY7RZTLa37f4FRK2OvQ
+clientKeyPassphrase: gcpkms:Jta2_6lnSvqpambWDYeHVA
+delegateName: eks-sberbank
+password: gcpkms:Fwbyp4HlTRmHzJAywU9fog
+serviceAccountToken: gcpkms:LqPlCKpbQmGcz_apGEV9pw
+skipValidation: false
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useKubernetesDelegate: true

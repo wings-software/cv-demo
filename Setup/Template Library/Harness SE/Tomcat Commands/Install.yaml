@@ -1,0 +1,70 @@
+harnessApiVersion: '1.0'
+type: SSH
+commandUnitType: INSTALL
+commandUnits:
+- command: |2-
+
+      # Execute as root and pass environment variables
+      # su -p -
+
+      # Execute as root via user credentials (with root privileges)
+      # sudo -E su -p -
+
+      # The following variables are absolute paths defined as:
+      # ${HOME}/${appName}/${serviceName}/[runtime|backup|staging]
+
+      mkdir -p "${RuntimePath}"
+      mkdir -p "${BackupPath}"
+      mkdir -p "${StagingPath}"
+  commandUnitType: SETUP_ENV
+  deploymentType: SSH
+  name: Setup Runtime Paths
+  scriptType: BASH
+- commandUnitType: COMMAND
+  name: Stop
+  templateUri: Harness SE/Tomcat Commands/Stop:1
+  variables:
+  - name: RuntimePath
+    value: ${RuntimePath}
+- artifactVariableName: artifact
+  commandUnitType: SCP
+  deploymentType: SSH
+  destinationDirectoryPath: ${RuntimePath}
+  name: Copy App Stack
+  source: APPLICATION_STACK
+- command: |-
+    rm -rf tomcat
+    rm -rf ${TomcatBinaryName}
+    tar xzvf ${TomcatBinaryName}.tar.gz
+    ln -s ${TomcatBinaryName} tomcat
+    chmod +x tomcat/bin/*
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Expand App Stack
+  scriptType: BASH
+  workingDirectory: ${RuntimePath}
+- artifactVariableName: artifact
+  commandUnitType: SCP
+  deploymentType: SSH
+  destinationDirectoryPath: ${RuntimePath}/tomcat/webapps
+  name: Copy Artifact
+  source: ARTIFACTS
+- commandUnitType: COPY_CONFIGS
+  deploymentType: SSH
+  destinationParentPath: ${RuntimePath}
+  name: Copy Configs
+- commandUnitType: COMMAND
+  name: Start
+  templateUri: Harness SE/Tomcat Commands/Start:1
+  variables:
+  - name: RuntimePath
+    value: ${RuntimePath}
+variables:
+- description: Runtime path to install binaries.
+  name: RuntimePath
+- description: Backup path.
+  name: BackupPath
+- description: Staging path.
+  name: StagingPath
+- description: Apache tomcat 7 tar file.
+  name: TomcatBinaryName

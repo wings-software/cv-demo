@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:6j4CTLZqR56I_lQ7_glV7Q
+url: https://github.com/andydpage/harness.git
+username: andydpage

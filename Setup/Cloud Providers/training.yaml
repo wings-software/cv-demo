@@ -1,0 +1,23 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+caCert: gcpkms:kosXgciZRVimlO9HVlwPbA
+clientCert: gcpkms:ro-cZkc4SOODxG2HGjfWtg
+clientKey: gcpkms:xizLRlh3TaWwTCArEmTTog
+clientKeyPassphrase: gcpkms:MX3OXauFRvSm-66ga76zRA
+delegateName: training
+password: gcpkms:KjJJQynMSzmTcpBvFL65sQ
+serviceAccountToken: gcpkms:sLKDq0tyQe6oeUOBq1EgQg
+skipValidation: false
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useKubernetesDelegate: true
