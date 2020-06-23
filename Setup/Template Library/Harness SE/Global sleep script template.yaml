@@ -1,0 +1,17 @@
+harnessApiVersion: '1.0'
+type: SHELL_SCRIPT
+scriptString: |-
+  cat << EOM
+
+  Paul like to demonstrate how to capture custom Workflow logic
+  and configure it for reuse in a Harness Template.
+  This is just a fun exercise...for POVs and alike.
+  Enjoy!
+  EOM
+
+  echo Going to sleep for ${sleepSeconds} seconds
+  sleep ${sleepSeconds}
+scriptType: BASH
+timeoutMillis: 600000
+variables:
+- name: sleepSeconds
