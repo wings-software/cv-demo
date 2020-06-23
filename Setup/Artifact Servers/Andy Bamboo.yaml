@@ -1,5 +1,0 @@
-harnessApiVersion: '1.0'
-type: BAMBOO
-password: gcpkms:v7vzSNorTraD72iGcMRHxQ
-url: http://ec2-3-135-64-247.us-east-2.compute.amazonaws.com:8085
-username: admin

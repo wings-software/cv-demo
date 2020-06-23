@@ -1,5 +1,0 @@
-harnessApiVersion: '1.0'
-type: DOCKER
-password: gcpkms:1gfm5pyOT5-6nvrfNMm7EQ
-url: https://index.docker.io/v2/
-username: pmawyer

@@ -1,3 +1,0 @@
-harnessApiVersion: '1.0'
-type: NOTIFICATION_GROUP
-defaultNotificationGroupForAccount: 'false'

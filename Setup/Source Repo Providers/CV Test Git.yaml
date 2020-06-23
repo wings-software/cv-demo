@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-branch: master
-keyAuth: false
-password: gcpkms:N6GGy_2pRzSmhWYx6JmHQg
-url: https://github.com/ldhertert/harness-cv-testapp.git
-username: ldhertert

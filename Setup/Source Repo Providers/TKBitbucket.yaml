@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-branch: master
-keyAuth: false
-password: gcpkms:0Yb0xJh5TgSOFPPVViKC2Q
-url: https://bitbucket.org/sndjnky/harness/src/master/
-username: sndjnky

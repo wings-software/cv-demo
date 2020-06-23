@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-keyAuth: false
-password: gcpkms:r1FMlR-YR9KKQOm6uBn1ig
-url: https://github.com/clucca13/cv-demo.git
-username: clucca13

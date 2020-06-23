@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-branch: master
-keyAuth: false
-password: gcpkms:NHFiVv5JSaqd6zS1eYbMrA
-url: https://github.com/knowingtech/helmchart.git
-username: knowingtech

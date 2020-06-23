@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-branch: master
-keyAuth: false
-password: gcpkms:Ebfrdnw5TOCCjjemjdb-2g
-url: https://github.com/prmawyer/harness-se-app.git
-username: prmawyer

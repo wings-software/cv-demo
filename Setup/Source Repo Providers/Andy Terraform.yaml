@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-branch: master
-keyAuth: false
-password: gcpkms:RFjpGwnsRJCJDFO_vGLBNQ
-url: https://github.com/andydpage/terraform.git
-username: andydpage

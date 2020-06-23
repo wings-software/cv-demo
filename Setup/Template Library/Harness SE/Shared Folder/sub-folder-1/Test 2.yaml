@@ -1,5 +1,0 @@
-harnessApiVersion: '1.0'
-type: HTTP
-method: GET
-timeoutMillis: 0
-url: https://app.datadoghq.com/api/v1/

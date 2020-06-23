@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-branch: master
-keyAuth: false
-password: gcpkms:Dm-lcdhYQtWIoQ617OPS3g
-url: https://github.com/tkvba/harness.git
-username: tkvba

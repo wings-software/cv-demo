@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-branch: master
-keyAuth: false
-password: gcpkms:d91kvWuTQSWudchKg-wdzQ
-url: https://github.com/robertcollura/harness-sample-app.git
-username: robertcollura

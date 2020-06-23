@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-keyAuth: false
-password: gcpkms:boCwG_pLSGSfJtSzVUxLnQ
-url: https://github.com/andydpage/nginx.git
-username: andydpage

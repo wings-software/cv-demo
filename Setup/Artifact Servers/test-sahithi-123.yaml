@@ -1,4 +1,0 @@
-harnessApiVersion: '1.0'
-type: GCS_HELM_REPO
-bucket: us.artifacts.sales-209522.appspot.com
-cloudProvider: Harness SE

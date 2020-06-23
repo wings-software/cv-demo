@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: SHELL_SCRIPT
-scriptString: |-
-  cd /home/ec2-user/cloudformation
-  /usr/local/bin/aws cloudformation create-change-set --stack-name single-instance --template-body file:///home/ec2-user/cloudformation/templates/instance-and-route53.yml --parameters file:///home/ec2-user/cloudformation/parameters/instance-and-route53.json --change-set-name single-instance-changeSet
-scriptType: BASH
-timeoutMillis: 600000

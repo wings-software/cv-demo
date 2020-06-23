@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-keyAuth: false
-password: gcpkms:QDuwyPa0QG6v2cTr8q5iWg
-url: https://github.com/skyaddflora/terraform-1.git
-username: skyaddflora

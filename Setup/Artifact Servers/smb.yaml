@@ -1,5 +1,0 @@
-harnessApiVersion: '1.0'
-type: SMB
-password: gcpkms:vEOHqPM5RWKeM3u-4T5dBw
-url: smb://192.168.1.99/andrewpage
-username: andrewpage

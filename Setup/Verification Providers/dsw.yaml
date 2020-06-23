@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: APP_DYNAMICS
-accountName: dsw
-controllerUrl: https://dsw.saas.appdynamics.com/controller
-password: gcpkms:asCLjMAaTmO2U-4QYiJ8Aw
-username: lhertert

@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: APP_DYNAMICS
-accountName: charlie202001160803034
-controllerUrl: https://charlie202001160803034.saas.appdynamics.com/controller
-password: gcpkms:6vNXIrNjQEWcGPiyXI5RXQ
-username: charlie202001160803034

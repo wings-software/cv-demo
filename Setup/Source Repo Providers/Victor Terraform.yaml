@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-branch: master
-keyAuth: false
-password: gcpkms:cT8LRkBJRwK_JzeO8ie3FA
-url: https://github.com/victorrgds/terraform-poc.git
-username: aaa

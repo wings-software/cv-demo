@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-branch: master
-keyAuth: false
-password: gcpkms:sxG8Ty8uRQ-hBUxdQ3KGKg
-url: https://github.com/wings-software/rk-test-git.git
-username: rohit.karelia@harness.io

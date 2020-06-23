@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-keyAuth: false
-password: gcpkms:VLQCFVt0RtO8kgrFY5JU0A
-url: https://github.com/wings-software/test-sahithi-repo
-username: sahithi.kolichala@harness.io

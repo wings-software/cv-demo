@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: KUBERNETES_CLUSTER
-masterUrl: https://192.168.99.101:8443
-serviceAccountToken: gcpkms:GNH6nfKjQf2cdLOeTur8gQ
-skipValidation: true
-useKubernetesDelegate: false

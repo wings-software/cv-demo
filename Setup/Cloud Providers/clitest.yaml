@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: KUBERNETES_CLUSTER
-masterUrl: https://localhost:6443/
-serviceAccountToken: gcpkms:BmUUaPVaRbaJT8pWA8tgOg
-skipValidation: false
-useKubernetesDelegate: false

@@ -1,5 +1,0 @@
-harnessApiVersion: '1.0'
-type: ARTIFACTORY
-password: gcpkms:_JeFvNczQlOCIDUJPvPN1g
-url: https://tkharness.jfrog.io/tkharness
-username: admin

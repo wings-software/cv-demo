@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: JENKINS
-authMechanism: UserName/Password
-password: gcpkms:XDmWtg-ZSnKWFZblZp8TnA
-token: gcpkms:XHT8qA8ZQeGHqYwZd3O7hQ
-url: https://jenkins.tools.harnessio.se/
-username: admin

@@ -1,5 +1,0 @@
-harnessApiVersion: '1.0'
-type: SHELL_SCRIPT
-scriptString: "echo \"git clone\" \n"
-scriptType: BASH
-timeoutMillis: 600000

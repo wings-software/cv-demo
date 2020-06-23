@@ -1,4 +1,0 @@
-harnessApiVersion: '1.0'
-type: DYNA_TRACE
-apiToken: gcpkms:voAyVmCuSDe5ksX5x4m0KQ
-dynaTraceUrl: http://host.docker.internal:9999/

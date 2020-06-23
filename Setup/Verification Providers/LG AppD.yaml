@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: APP_DYNAMICS
-accountName: notarealcompany
-controllerUrl: https://notarealcompany.saas.appdynamics.com/controller
-password: gcpkms:Y9DY3y4JR-2a9XA88_qcog
-username: lg

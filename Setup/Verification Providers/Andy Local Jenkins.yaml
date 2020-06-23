@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: JENKINS
-authMechanism: UserName/Password
-password: gcpkms:YZNuaZ-YThmwkE3B7PQ1xg
-token: gcpkms:hfSAFsqPSp-mbNSdyi3Uyw
-url: http://192.168.1.131:8080
-username: admin

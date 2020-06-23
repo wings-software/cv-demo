@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: GIT
-branch: master
-keyAuth: false
-password: gcpkms:OnU4QNJVRBaxwG1A_ZnMMg
-url: https://github.com/nginxinc/helm-charts.git
-username: robertcollura

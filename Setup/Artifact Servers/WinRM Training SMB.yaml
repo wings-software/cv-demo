@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: SMB
-domain: .
-password: gcpkms:Dla4H5nRQZ-PqluvT_Q6MA
-url: smb://ip-172-31-20-27.us-east-2.compute.internal/Artifacts
-username: harness

@@ -1,6 +1,0 @@
-harnessApiVersion: '1.0'
-type: JENKINS
-authMechanism: UserName/Password
-password: gcpkms:zeZOraFITGeFq8ld6q3jAg
-url: http://thomass-macbook-pro-2.local:8080/
-username: tkjenkins
