@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:lCfk1aY6TbuDK4NG5ZiEng
+url: https://github.com/rohangupta5328/terraform-1.git
+username: rohangupta5328

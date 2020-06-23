@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: NEXUS
+password: gcpkms:8gdsN_p2TK2JcjqUMndqKQ
+url: https://nexusv3.tools.harnessio.se/
+username: admin

@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:bHapoMqcRKmlKbG2jowNlA
+url: https://github.com/bitnami/charts.git
+username: andydpage

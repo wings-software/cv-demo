@@ -1,0 +1,15 @@
+harnessApiVersion: '1.0'
+type: SHELL_SCRIPT
+scriptString: |-
+  sutil cp gs://bigfish-test-264717.appspot.com/bigfishtest/helloworld.tar.gz
+  tar -xvf ${gartifact}
+  gcloud beta app deploy ${env} --no-promote --project=${projectid}
+scriptType: BASH
+timeoutMillis: 600000
+variables:
+- description: artifact
+  name: gartifact
+- description: enviroment
+  name: env
+- description: proojectid
+  name: projectid

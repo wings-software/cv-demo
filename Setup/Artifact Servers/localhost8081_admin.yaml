@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: NEXUS
+password: gcpkms:lXdcU35WSQyhKNa8ausXGA
+url: http://localhost:8081
+username: admin

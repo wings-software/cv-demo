@@ -1,0 +1,14 @@
+harnessApiVersion: '1.0'
+type: PHYSICAL_DATA_CENTER
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD

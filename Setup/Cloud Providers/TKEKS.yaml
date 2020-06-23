@@ -1,0 +1,31 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+delegateName: tkcluster6
+skipValidation: false
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      entityNames:
+      - TK
+      filterType: SELECTED
+    envFilter:
+      filterTypes:
+      - NON_PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      entityNames:
+      - TK
+      filterType: SELECTED
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useKubernetesDelegate: true

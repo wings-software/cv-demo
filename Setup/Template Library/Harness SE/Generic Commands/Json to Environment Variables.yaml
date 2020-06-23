@@ -1,0 +1,15 @@
+harnessApiVersion: '1.0'
+type: SSH
+commandUnitType: START
+commandUnits:
+- command: grep -Eo '.*:.*?[^\\]"' ${ArtifactFileName} | sed 's/\"//g' | awk -F':' '{print "export " $1 "=\"" $2 "\""}' > __dummy.sh && . ./__dummy.sh && rm __dummy.sh
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Exec
+  scriptType: BASH
+  workingDirectory: $RuntimePath
+variables:
+- description: Runtime path to install binaries.
+  name: RuntimePath
+- description: Artifact JSON file name
+  name: ArtifactFileName

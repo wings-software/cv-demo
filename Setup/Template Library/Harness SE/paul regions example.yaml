@@ -1,0 +1,21 @@
+harnessApiVersion: '1.0'
+type: SSH
+commandUnitType: OTHER
+commandUnits:
+- command: |-
+    cat<<EOM
+
+    Paul like to demonstrate how to capture custom Workflow logic
+    and configure it for reuse in a Harness Template.
+    This is just a fun exercise...for POVs and alike.
+    Enjoy!
+    EOM
+
+    echo Going to sleep for ${sleepSeconds} seconds
+    sleep ${sleepSeconds}
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Execute sleep command
+  scriptType: BASH
+variables:
+- name: sleepSeconds

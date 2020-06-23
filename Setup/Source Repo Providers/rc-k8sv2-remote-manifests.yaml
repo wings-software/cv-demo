@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:m5h4Tl2lQri3CeXLVJTW9Q
+url: https://github.com/robertcollura/k8sv2.git
+username: robertcollura

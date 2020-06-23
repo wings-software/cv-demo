@@ -1,0 +1,23 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+caCert: gcpkms:XnQhIh2UTwCrJV9E4Jwssw
+clientCert: gcpkms:T3twEuKGTM28cA2jU_KZ9g
+clientKey: gcpkms:y8EcKPzeSf6qnHmLhR5rUQ
+clientKeyPassphrase: gcpkms:QLH7YISlQi2pllwjvHSc5Q
+delegateName: harness-sample-k8s-delegate
+password: gcpkms:uaPj1BjqTDSAcKDEnWKomw
+serviceAccountToken: gcpkms:qoJ6KV0tT-a2EQtwy59nSA
+skipValidation: true
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useKubernetesDelegate: true

@@ -1,0 +1,18 @@
+harnessApiVersion: '1.0'
+type: AWS
+assumeCrossAccountRole: false
+secretKey: gcpkms:BbVJu8PMQfekuV3QovMhew
+tag: winrm-training
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useEc2IamCredentials: true

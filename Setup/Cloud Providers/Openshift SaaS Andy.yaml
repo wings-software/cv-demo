@@ -1,0 +1,6 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+masterUrl: https://api.us-west-1.starter.openshift-online.com:6443
+serviceAccountToken: gcpkms:orJkYfUlTM-J8-fNqqvAOA
+skipValidation: true
+useKubernetesDelegate: false

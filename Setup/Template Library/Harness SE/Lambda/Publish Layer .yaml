@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: SHELL_SCRIPT
+outputVars: version-arn,arn
+scriptString: |-
+  aws lambda publish-layer-version \
+      --layer-name $service.name \
+      --content S3Bucket=$artifact.bucket,S3Key=$artifact.filename \
+      --compatible-runtimes $servicevariable.?
+scriptType: BASH
+timeoutMillis: 600000

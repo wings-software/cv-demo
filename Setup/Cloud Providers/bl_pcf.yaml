@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: PCF
+endpointUrl: api.run.pivotal.io
+password: gcpkms:YRKc-dKWQkqOCSOMh3LvJQ
+username: brien.lay@harness.io

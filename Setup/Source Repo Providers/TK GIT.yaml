@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:V9Zytdx1St-5BL01_kM6Rg
+url: https://github.com/tkvba/tknew
+username: tkvba

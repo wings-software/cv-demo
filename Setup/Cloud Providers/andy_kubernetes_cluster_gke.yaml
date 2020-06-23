@@ -1,0 +1,24 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+caCert: gcpkms:LI8kWpRMSh6fw-QJ_HAodQ
+clientCert: gcpkms:X5yoDisTQdi_5Y45Nh1u2g
+clientKey: gcpkms:FcQTg3hXRC-4OE9CTLDSuA
+clientKeyPassphrase: gcpkms:EkPVX2LSTi6QZ7Mi5rykFA
+delegateName: andy-gke
+password: gcpkms:GhWmvWquQUmaO9_Nr8lp9Q
+serviceAccountToken: gcpkms:WoBCKI5rSn65LrHsWmii-g
+skipValidation: false
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useKubernetesDelegate: true
+username: andrew.page@harness.io

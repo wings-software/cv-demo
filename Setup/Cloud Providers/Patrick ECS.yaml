@@ -1,0 +1,14 @@
+harnessApiVersion: '1.0'
+type: AWS
+assumeCrossAccountRole: false
+tag: patrick-ecs-fargate
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      entityNames:
+      - Patrick-Workspace
+      filterType: SELECTED
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useEc2IamCredentials: true

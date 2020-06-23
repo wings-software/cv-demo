@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: SSH
+commandUnitType: OTHER
+commandUnits:
+- command: echo "test"
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Exec
+  scriptType: BASH
+  workingDirectory: .

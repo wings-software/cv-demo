@@ -1,0 +1,6 @@
+harnessApiVersion: '1.0'
+type: GIT
+keyAuth: false
+password: gcpkms:ICOdFnQ2Q82HHJdd8NooDA
+url: https://github.com/nandan-harness/terraform
+username: nandan.chandrashekar@harness.io

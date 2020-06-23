@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: SHELL_SCRIPT
+scriptString: |
+  hostname
+  pwd
+  echo "test" > test.out
+scriptType: BASH
+timeoutMillis: 600000

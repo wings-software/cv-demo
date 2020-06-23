@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: PCF
+endpointUrl: api.run.pivotal.io
+password: gcpkms:56hM7FWVToi8fAMJt5zJfQ
+username: luke.hertert@harness.io

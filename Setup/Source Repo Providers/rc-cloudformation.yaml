@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:vOF-vavGSwOWWCDjAgb4kA
+url: https://github.com/robertcollura/cloudformation.git
+username: robertcollura

@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:rx1rurpdRDG0DPdNob53Jg
+url: https://tomk0516@dev.azure.com/tomk0516/TestProject/_git/TestProject
+username: tomk

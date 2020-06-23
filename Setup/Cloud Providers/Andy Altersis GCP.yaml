@@ -1,0 +1,3 @@
+harnessApiVersion: '1.0'
+type: GCP
+serviceAccountKeyFileContent: gcpkms:iaSo4pExS42-M4METpn56A

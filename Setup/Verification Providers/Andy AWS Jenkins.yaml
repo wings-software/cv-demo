@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+authMechanism: UserName/Password
+password: gcpkms:e2Xm0BKTQ0ChHvvvxfAhiQ
+token: gcpkms:UD2FTBdrSmCE3ukBG1PA_g
+url: http://ec2-34-248-172-160.eu-west-1.compute.amazonaws.com/jenkins
+username: user

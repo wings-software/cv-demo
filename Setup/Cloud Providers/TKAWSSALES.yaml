@@ -1,0 +1,16 @@
+harnessApiVersion: '1.0'
+type: AWS
+assumeCrossAccountRole: false
+tag: tkawssales
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      entityNames:
+      - TK
+      filterType: SELECTED
+    envFilter:
+      entityNames:
+      - AWS
+      filterTypes:
+      - SELECTED
+useEc2IamCredentials: true

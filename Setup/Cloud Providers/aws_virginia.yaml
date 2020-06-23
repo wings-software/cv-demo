@@ -1,0 +1,18 @@
+harnessApiVersion: '1.0'
+type: AWS
+assumeCrossAccountRole: false
+secretKey: gcpkms:ERNDaJo_TNi_AA6ckC81Rw
+tag: ecslab
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useEc2IamCredentials: true

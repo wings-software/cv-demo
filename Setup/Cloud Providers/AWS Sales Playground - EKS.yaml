@@ -1,0 +1,23 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+caCert: gcpkms:qE-z4tVMQwukExn2Q8tGDQ
+clientCert: gcpkms:kkxUBrqKRwu23O8TIOCMlg
+clientKey: gcpkms:5i624VGYTMWsUa5I5n3eGw
+clientKeyPassphrase: gcpkms:8xBOd4PTRTOa9Kw8VeiqGQ
+delegateName: aws-sales-playground-eks
+password: gcpkms:6sXSJpf0RWinZY1M5Ofrvg
+serviceAccountToken: gcpkms:DkZDejN3SL2n6UVmK-6Q2Q
+skipValidation: false
+usageRestrictions:
+  appEnvRestrictions:
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - PROD
+  - appFilter:
+      filterType: ALL
+    envFilter:
+      filterTypes:
+      - NON_PROD
+useKubernetesDelegate: true

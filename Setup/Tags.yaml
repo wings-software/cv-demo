@@ -1,0 +1,20 @@
+harnessApiVersion: '1.0'
+type: TAG
+tag:
+- name: ARTIFACT_TYPE
+- name: ENVNAME
+- name: LR-AWS
+- name: SCOPE
+- name: TKAWS
+- allowedValues:
+  - Demo
+  - Test
+  name: TKWFTYPE
+- name: UB_INSTANCE_ID
+- name: canary
+- name: commit-hash
+- name: commitId
+- name: lg
+- name: release
+- name: status
+- name: tk_tier

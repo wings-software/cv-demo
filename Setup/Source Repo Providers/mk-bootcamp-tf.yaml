@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:sa8rPAtoR6GdrH2TY4Y0JQ
+url: https://github.com/michael-katz/terraform.git
+username: michael.katz@harness.io

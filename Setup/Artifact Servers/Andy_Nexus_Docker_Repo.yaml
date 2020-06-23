@@ -1,0 +1,3 @@
+harnessApiVersion: '1.0'
+type: DOCKER
+url: http://192.168.1.99:8081/repository/harnessDocker/

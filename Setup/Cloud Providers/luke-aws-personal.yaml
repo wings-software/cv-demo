@@ -1,0 +1,6 @@
+harnessApiVersion: '1.0'
+type: AWS
+accessKey: AKIA4GKQX65CNBFCYRB2
+assumeCrossAccountRole: false
+secretKey: gcpkms:1OctzjagSU2pHLHaHcBrGw
+useEc2IamCredentials: false

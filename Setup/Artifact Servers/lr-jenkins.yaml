@@ -1,0 +1,6 @@
+harnessApiVersion: '1.0'
+type: JENKINS
+authMechanism: Username/Password
+password: gcpkms:OfysUdp1SLusIPhy453CFA
+url: http://ec2-3-16-212-216.us-east-2.compute.amazonaws.com:8080
+username: luis.redda

@@ -1,0 +1,10 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+authType: NONE
+caCert: gcpkms:h86tNS-sSZSpvZKSqwrprg
+clientCert: gcpkms:3Pf6-VRtSAqRbymxmauNiA
+clientKey: gcpkms:TILP0U-9Q2KHlUYMgJYLyw
+masterUrl: https://psuholet2c.mylabserver.com:6443
+password: gcpkms:IVnQeq_NS_a1IpmzK3NjUw
+skipValidation: false
+useKubernetesDelegate: false

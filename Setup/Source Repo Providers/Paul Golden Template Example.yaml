@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: GIT
+branch: master
+keyAuth: false
+password: gcpkms:cqjEepFzQH6K2W8-QwMIRQ
+url: https://github.com/paul-harness/Sample-Golden-Application.git
+username: paul.suholet@harness.io

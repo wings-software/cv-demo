@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: ARTIFACTORY
+password: gcpkms:7y6xVLBDT2yCrDVKKZsdww
+url: https://brien.jfrog.io/brien/
+username: admin

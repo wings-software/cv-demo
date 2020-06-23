@@ -1,0 +1,6 @@
+harnessApiVersion: '1.0'
+type: KUBERNETES_CLUSTER
+masterUrl: https://ec2-3-19-229-245.us-east-2.compute.amazonaws.com:8443/
+serviceAccountToken: gcpkms:KpWWyuDjRDy9RfrHHooRhw
+skipValidation: true
+useKubernetesDelegate: false

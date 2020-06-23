@@ -1,0 +1,5 @@
+harnessApiVersion: '1.0'
+type: PCF
+endpointUrl: api.run.pivotal.io
+password: gcpkms:eEYtCcE9RvSn_cmO09OeBQ
+username: andydpage@yahoo.com
