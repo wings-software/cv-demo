@@ -2,8 +2,11 @@ harnessApiVersion: '1.0'
 type: SSH
 commandUnitType: OTHER
 commandUnits:
-- command: |2-
+- command: |-
+    # This script simulates the creation of an RFC in Ivanti using the Ivanti API
 
+    echo "**CREATING RFC IN IVANTI VIA API**"
+    sleep 5
 
     cat<<EOM
     curl --header "Content-Type: application/json" \
@@ -23,6 +26,9 @@ commandUnits:
     }' \
       https://tatnet.ivanti.com/api/odata/businessobject/change
     EOM
+
+    sleep 5
+    echo "**SUCCESSFULLY CREATED RFC: RF00008675309**"
   commandUnitType: EXEC
   deploymentType: SSH
   name: Create RFC in Ivanti
