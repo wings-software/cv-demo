@@ -33,3 +33,34 @@ commandUnits:
   deploymentType: SSH
   name: Create RFC in Ivanti
   scriptType: BASH
+- command: |-
+    # This script simulates the update of an RFC in Ivanti using the Ivanti API
+
+    echo "**UPDATING RFC RF00008675309 IN IVANTI VIA API**"
+    sleep 5
+
+    cat<<EOM
+    curl --header "Content-Type: application/json" \
+      --request POST \
+      --data '{
+    "Category": "Computer",
+    "CreatedBy":"Admin",
+    "RequestorLink_RecID":"FB884D18F7B746A0992880F2DFFE749C",
+    "Description" : "test",
+    "Owner": "BHeath",
+    "OwnerTeam":"Accounting",
+    "Subject":"test",
+    "OwnerTeam_Valid":"8D796372096546AC9008C0EDAB18EE5F",
+    "Owner_Valid":"147098AD139247F6B177042064C5E39C",
+    "Status":"Logged",
+    "TypeOfChange": "Minor"
+    }' \
+      https://tatnet.ivanti.com/api/odata/businessobject/change
+    EOM
+
+    sleep 5
+    echo "**SUCCESSFULLY UPDATED RFC: RF00008675309**"
+  commandUnitType: EXEC
+  deploymentType: SSH
+  name: Exec-1
+  scriptType: BASH
