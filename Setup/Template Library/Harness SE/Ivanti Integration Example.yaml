@@ -62,5 +62,5 @@ commandUnits:
     echo "**SUCCESSFULLY UPDATED RFC: RF00008675309**"
   commandUnitType: EXEC
   deploymentType: SSH
-  name: Exec-1
+  name: Update RFC in Ivanti
   scriptType: BASH
