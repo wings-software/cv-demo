@@ -2,7 +2,8 @@ harnessApiVersion: '1.0'
 type: SSH
 commandUnitType: OTHER
 commandUnits:
-- commandUnitType: EXEC
+- command: echo "nada"
+  commandUnitType: EXEC
   deploymentType: SSH
   name: Exec
   scriptType: BASH
