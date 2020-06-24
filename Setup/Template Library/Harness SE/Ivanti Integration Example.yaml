@@ -25,5 +25,5 @@ commandUnits:
     EOM
   commandUnitType: EXEC
   deploymentType: SSH
-  name: Exec
+  name: Create RFC in Ivanti
   scriptType: BASH
