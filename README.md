@@ -81,8 +81,8 @@
 - *Observe Verification steps detecting the anomalies*
 
 ## Setup 24/7 Service Guard 
-[24/7 docs](https://docs.harness.io/article/dajt54pyxd-24-7-service-guard-overview)
-[prometheus docs](https://docs.harness.io/article/i9d01kf32g-2-24-7-service-guard-for-prometheus)
+[24/7 docs](https://docs.harness.io/article/dajt54pyxd-24-7-service-guard-overview)<br>
+[prometheus docs](https://docs.harness.io/article/i9d01kf32g-2-24-7-service-guard-for-prometheus)<br>
 [Elasticsearch docs](https://docs.harness.io/article/564doloeuq-2-24-7-service-guard-for-elasticsearch)
 
 - Copy Service Guard configuration into your own sync repo:<br>
