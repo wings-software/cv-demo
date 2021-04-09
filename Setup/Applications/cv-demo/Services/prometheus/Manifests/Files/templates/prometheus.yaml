@@ -14,7 +14,9 @@ spec:
     spec:
       containers:
         - name: prometheus
-          image: prom/prometheus:v2.12.0
+          imagePullSecrets:
+            - name: regcred
+          image: ccoe-docker-rel-local.artifactory.aws.nbscloud.co.uk/prometheus:1.7.1
           args:
             - "--config.file=/etc/prometheus/prometheus.yml"
             - "--storage.tsdb.path=/prometheus/"
