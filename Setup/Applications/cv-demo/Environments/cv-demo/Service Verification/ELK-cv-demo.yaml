@@ -3,7 +3,7 @@ type: ELK
 alertEnabled: false
 alertPriority: P5
 alertThreshold: 0.5
-connectorName: ELK-cv-demo
+#connectorName: ELK-cv-demo
 enabled24x7: true
 hostnameField: hostname
 index: cv-demo

@@ -25,11 +25,6 @@ phases:
         instances: '1'
     stepsInParallel: false
   - type: K8S_PHASE_STEP
-    failureStrategies:
-    - failureTypes:
-      - APPLICATION_ERROR
-      repairActionCode: MANUAL_INTERVENTION
-      retryCount: 0
     name: Verify
     stepSkipStrategies:
     - assertionExpression: ${workflow.variables.metric_verification} != "NewRelic" || ${workflow.variables.verify_canary} == "no"

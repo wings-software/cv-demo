@@ -3,7 +3,7 @@ type: PROMETHEUS
 alertEnabled: false
 alertThreshold: 0.5
 analysisTolerance: LOW
-connectorName: Prometheus-cv-demo
+#connectorName: Prometheus-cv-demo
 enabled24x7: true
 serviceName: cv-demo
 timeSeriesList:

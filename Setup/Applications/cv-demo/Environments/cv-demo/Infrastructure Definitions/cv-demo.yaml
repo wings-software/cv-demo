@@ -4,6 +4,6 @@ cloudProviderType: KUBERNETES_CLUSTER
 deploymentType: KUBERNETES
 infrastructure:
 - type: DIRECT_KUBERNETES
-  cloudProviderName: cv-demo
-  namespace: cv-demo
+  cloudProviderName: Kubernetes Cluster - Kaizen Testing Delegate
+  namespace: kaizen-testing-1
   releaseName: release-${infra.kubernetes.infraId}
