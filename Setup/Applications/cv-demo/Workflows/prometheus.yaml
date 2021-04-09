@@ -1,0 +1,46 @@
+harnessApiVersion: '1.0'
+type: ROLLING
+concurrencyStrategy: INFRA
+envName: cv-demo
+failureStrategies:
+- executionScope: WORKFLOW
+  failureTypes:
+  - APPLICATION_ERROR
+  repairActionCode: ROLLBACK_WORKFLOW
+  retryCount: 0
+phases:
+- type: KUBERNETES
+  computeProviderName: cv-demo
+  daemonSet: false
+  infraDefinitionName: cv-demo
+  name: Rolling
+  phaseSteps:
+  - type: K8S_PHASE_STEP
+    name: Deploy
+    steps:
+    - type: K8S_DEPLOYMENT_ROLLING
+      name: Rollout Deployment
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: prometheus
+  statefulSet: false
+rollbackPhases:
+- type: KUBERNETES
+  computeProviderName: cv-demo
+  daemonSet: false
+  infraDefinitionName: cv-demo
+  name: Rollback Rolling
+  phaseNameForRollback: Rolling
+  phaseSteps:
+  - type: K8S_PHASE_STEP
+    name: Deploy
+    phaseStepNameForRollback: Deploy
+    statusForRollback: SUCCESS
+    steps:
+    - type: K8S_DEPLOYMENT_ROLLING_ROLLBACK
+      name: Rollback Deployment
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: prometheus
+  statefulSet: false
+templatized: false

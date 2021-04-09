@@ -1,0 +1,83 @@
+harnessApiVersion: '1.0'
+type: ROLLING
+concurrencyStrategy: INFRA
+envName: cv-demo
+failureStrategies:
+- executionScope: WORKFLOW
+  failureTypes:
+  - APPLICATION_ERROR
+  repairActionCode: ROLLBACK_WORKFLOW
+  retryCount: 0
+phases:
+- type: KUBERNETES
+  computeProviderName: cv-demo
+  daemonSet: false
+  infraDefinitionName: cv-demo
+  name: Rolling
+  phaseSteps:
+  - type: K8S_PHASE_STEP
+    name: Deploy
+    steps:
+    - type: K8S_DEPLOYMENT_ROLLING
+      name: Rollout Deployment
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    failureStrategies:
+    - failureTypes:
+      - APPLICATION_ERROR
+      repairActionCode: RETRY
+      repairActionCodeAfterRetry: ROLLBACK_WORKFLOW
+      retryCount: 3
+      retryIntervals:
+      - 5
+      specificSteps:
+      - UI Endpoint
+    name: Verify
+    steps:
+    - type: HTTP
+      name: UI Endpoint
+      properties:
+        assertion: ${httpResponseCode} == 200
+        body: ''
+        executeWithPreviousSteps: false
+        header: ''
+        method: GET
+        publishAsVar: false
+        responseProcessingExpressions: ''
+        sweepingOutputName: null
+        sweepingOutputScope: null
+        tags: ''
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
+        timeoutMillis: 10000
+        url: ${serviceVariable.baseUrl}
+        useProxy: false
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: cv-demo-ui
+  statefulSet: false
+rollbackPhases:
+- type: KUBERNETES
+  computeProviderName: cv-demo
+  daemonSet: false
+  infraDefinitionName: cv-demo
+  name: Rollback Rolling
+  phaseNameForRollback: Rolling
+  phaseSteps:
+  - type: K8S_PHASE_STEP
+    name: Deploy
+    phaseStepNameForRollback: Deploy
+    statusForRollback: SUCCESS
+    steps:
+    - type: K8S_DEPLOYMENT_ROLLING_ROLLBACK
+      name: Rollback Deployment
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Wrap Up
+    phaseStepNameForRollback: Wrap Up
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: cv-demo-ui
+  statefulSet: false
+templatized: false
