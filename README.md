@@ -1,5 +1,6 @@
 # CV Demo Setup
 
+
 ## Create a kubernetes cluster
 - One node is enough, with minimum **2 CPU** and **6 GB** memory
 - You will need more capacity if you plan to put a delegate in the cluster
