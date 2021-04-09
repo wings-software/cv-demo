@@ -14,8 +14,6 @@ spec:
     spec:
       containers:
         - name: prometheus
-          imagePullSecrets:
-            - name: regcred
           image: ccoe-docker-rel-local.artifactory.aws.nbscloud.co.uk/prometheus:1.7.1
           args:
             - "--config.file=/etc/prometheus/prometheus.yml"
@@ -35,3 +33,5 @@ spec:
   
         - name: prometheus-storage-volume
           emptyDir: {}
+      imagePullSecrets:
+        - name: regcred
