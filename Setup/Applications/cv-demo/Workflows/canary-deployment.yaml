@@ -32,6 +32,10 @@ phases:
       properties:
         instanceUnitType: COUNT
         instances: '1'
+        stateTimeoutInMinutes: 10
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Verify
