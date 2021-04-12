@@ -115,6 +115,12 @@ phases:
         ccAddress: shwetha.ballari@nationwide.co.in
         subject: phase-2 canary deployment testing
         toAddress: akash.gupta@nationwide.co.uk
+    - type: K8S_CANARY_DEPLOY
+      name: Canary Deployment
+      properties:
+        instanceUnitType: COUNT
+        instances: '2'
+        stateTimeoutInMinutes: 10
     stepsInParallel: false
   provisionNodes: false
   serviceName: canary-deploy-service
