@@ -39,6 +39,24 @@ phases:
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Verify
+    steps:
+    - type: PROMETHEUS
+      name: Prometheus
+      properties:
+        analysisServerConfigId: uJ0NZrvSTpCcC3PtWZf7HQ
+        analysisTolerance: HIGH
+        comparisonStrategy: COMPARE_WITH_CURRENT
+        customThresholdRefId: 088d468e864c4969accf7868006b568c
+        timeDuration: 15
+        timeSeriesToAnalyze:
+        - metricName: CPU-throughput
+          metricType: RESP_TIME
+          txnName: hardware
+          url: up{instance=$hostName}
+        - metricName: CPU-error
+          metricType: THROUGHPUT
+          txnName: hardware
+          url: up{instance="$hostName"}
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
