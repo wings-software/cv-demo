@@ -55,11 +55,11 @@ phases:
         - metricName: CPU-throughput
           metricType: RESP_TIME
           txnName: hardware
-          url: container_cpu_usage_seconds_total{namespace="kaizen-testing-1",pod="$hostName",container="prometheus"}
+          url: container_cpu_usage_seconds_total{namespace="kaizen-canary",pod="$hostName",container="POD"}
         - metricName: CPU-error
           metricType: THROUGHPUT
           txnName: hardware
-          url: container_cpu_usage_seconds_total{namespace="kaizen-testing-1",pod="$hostName",container="prometheus"}
+          url: container_cpu_usage_seconds_total{namespace="kaizen-canary",pod="$hostName",container="POD"}
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
