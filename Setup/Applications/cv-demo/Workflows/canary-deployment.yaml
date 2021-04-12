@@ -107,6 +107,14 @@ phases:
   phaseSteps:
   - type: K8S_PHASE_STEP
     name: Deploy
+    steps:
+    - type: EMAIL
+      name: Email
+      properties:
+        body: hey
+        ccAddress: shwetha.ballari@nationwide.co.in
+        subject: phase-2 canary deployment testing
+        toAddress: akash.gupta@nationwide.co.uk
     stepsInParallel: false
   provisionNodes: false
   serviceName: canary-deploy-service
