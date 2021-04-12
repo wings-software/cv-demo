@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: ARTIFACTORY
+imageName: helloworld-java
+metadataOnly: true
+repositoryName: kaizen-docker-dev-local
+repositoryType: docker
+serverName: kaizen-docker
+useDockerFormat: false
