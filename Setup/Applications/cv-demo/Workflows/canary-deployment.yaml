@@ -55,11 +55,11 @@ phases:
         - metricName: CPU-throughput
           metricType: RESP_TIME
           txnName: hardware
-          url: up{instance="$hostName"}
+          url: container_cpu_usage_seconds_total{namespace="$hostName",pod="test-nginx-f44c6494f-jjzkm",container="nginx"}
         - metricName: CPU-error
           metricType: THROUGHPUT
           txnName: hardware
-          url: up{instance="$hostName"}
+          url: container_cpu_usage_seconds_total{namespace="$hostName",pod="test-nginx-f44c6494f-jjzkm",container="nginx"}
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
