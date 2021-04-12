@@ -50,7 +50,7 @@ phases:
         templateUuid: null
         templateVariables: null
         templateVersion: null
-        timeDuration: 15
+        timeDuration: 5
         timeSeriesToAnalyze:
         - metricName: CPU-throughput
           metricType: RESP_TIME
