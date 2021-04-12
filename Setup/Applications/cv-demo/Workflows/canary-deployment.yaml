@@ -121,6 +121,10 @@ phases:
         instanceUnitType: COUNT
         instances: '2'
         stateTimeoutInMinutes: 10
+    - type: K8S_DEPLOYMENT_ROLLING
+      name: Rollout Deployment
+      properties:
+        stateTimeoutInMinutes: 10
     stepsInParallel: false
   provisionNodes: false
   serviceName: canary-deploy-service
