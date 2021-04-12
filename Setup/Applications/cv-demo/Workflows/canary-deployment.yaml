@@ -17,4 +17,12 @@ notificationRules:
   userGroupAsExpression: false
   userGroupIds:
   - Lh9O151sSmC3_XapvUbb-w
+preDeploymentSteps:
+- type: EMAIL
+  name: Akash Gupta
+  properties:
+    body: Hey
+    ccAddress: manbir.bhullar@nationwide.co.uk
+    subject: 'Canary deployment trigger '
+    toAddress: akash.gupta@nationwide.co.uk
 templatized: false
