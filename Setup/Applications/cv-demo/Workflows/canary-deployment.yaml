@@ -31,7 +31,7 @@ phases:
       name: Canary Deployment
       properties:
         instanceUnitType: COUNT
-        instances: '1'
+        instances: '2'
         stateTimeoutInMinutes: 10
         templateUuid: null
         templateVariables: null
