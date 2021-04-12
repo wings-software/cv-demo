@@ -52,6 +52,27 @@ phases:
   provisionNodes: false
   serviceName: canary-deploy-service
   statefulSet: false
+- type: KUBERNETES
+  computeProviderName: Kubernetes Cluster - Kaizen Testing Delegate
+  daemonSet: false
+  infraDefinitionName: dev -canary-infra
+  name: Primary
+  phaseSteps:
+  - type: K8S_PHASE_STEP
+    name: Deploy
+    steps:
+    - type: K8S_DEPLOYMENT_ROLLING
+      name: Rollout Deployment
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Verify
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Wrap Up
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: canary-deploy-service
+  statefulSet: false
 preDeploymentSteps:
 - type: EMAIL
   name: Akash Gupta
@@ -72,6 +93,28 @@ rollbackPhases:
     name: Deploy
     phaseStepNameForRollback: Deploy
     statusForRollback: SUCCESS
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Wrap Up
+    phaseStepNameForRollback: Wrap Up
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: canary-deploy-service
+  statefulSet: false
+- type: KUBERNETES
+  computeProviderName: Kubernetes Cluster - Kaizen Testing Delegate
+  daemonSet: false
+  infraDefinitionName: dev -canary-infra
+  name: Rollback Primary
+  phaseNameForRollback: Primary
+  phaseSteps:
+  - type: K8S_PHASE_STEP
+    name: Deploy
+    phaseStepNameForRollback: Deploy
+    statusForRollback: SUCCESS
+    steps:
+    - type: K8S_DEPLOYMENT_ROLLING_ROLLBACK
+      name: Rollback Deployment
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
