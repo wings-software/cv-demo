@@ -53,11 +53,7 @@ phases:
         timeDuration: 5
         timeSeriesToAnalyze:
         - metricName: CPU-throughput
-          metricType: RESP_TIME
-          txnName: hardware
-          url: container_cpu_usage_seconds_total{namespace="kaizen-canary",pod="$hostName",container="POD"}
-        - metricName: CPU-error
-          metricType: THROUGHPUT
+          metricType: VALUE
           txnName: hardware
           url: container_cpu_usage_seconds_total{namespace="kaizen-canary",pod="$hostName",container="POD"}
     stepsInParallel: false
