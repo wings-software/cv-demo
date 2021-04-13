@@ -1,7 +1,7 @@
 harnessApiVersion: '1.0'
 type: PROMETHEUS
 alertEnabled: true
-alertThreshold: 0.10000000000000003
+alertThreshold: 2.7755575615628914E-17
 analysisTolerance: LOW
 connectorName: Prometheus
 enabled24x7: true
