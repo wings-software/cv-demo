@@ -44,7 +44,7 @@ phases:
       name: Prometheus
       properties:
         analysisServerConfigId: uJ0NZrvSTpCcC3PtWZf7HQ
-        analysisTolerance: HIGH
+        analysisTolerance: LOW
         comparisonStrategy: COMPARE_WITH_CURRENT
         customThresholdRefId: 088d468e864c4969accf7868006b568c
         templateUuid: null
