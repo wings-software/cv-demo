@@ -8,6 +8,14 @@ failureStrategies:
   - APPLICATION_ERROR
   repairActionCode: ROLLBACK_WORKFLOW
   retryCount: 0
+notificationRules:
+- conditions:
+  - FAILED
+  executionScope: WORKFLOW
+  notificationGroupAsExpression: false
+  userGroupAsExpression: false
+  userGroupIds:
+  - Lh9O151sSmC3_XapvUbb-w
 phases:
 - type: KUBERNETES
   computeProviderName: cv-demo
@@ -40,7 +48,6 @@ phases:
         assertion: ${httpResponseCode} == 200
         body: ''
         executeWithPreviousSteps: false
-        header: ''
         method: GET
         publishAsVar: false
         responseProcessingExpressions: ''
