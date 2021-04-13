@@ -47,13 +47,15 @@ phases:
         analysisTolerance: LOW
         comparisonStrategy: COMPARE_WITH_CURRENT
         customThresholdRefId: 088d468e864c4969accf7868006b568c
+        executeWithPreviousSteps: false
+        includePreviousPhaseNodes: false
         templateUuid: null
         templateVariables: null
         templateVersion: null
         timeDuration: 5
         timeSeriesToAnalyze:
-        - metricName: CPU-throughput
-          metricType: VALUE
+        - metricName: CPU-infra
+          metricType: INFRA
           txnName: hardware
           url: container_cpu_usage_seconds_total{namespace="kaizen-canary",pod="$hostName",container="POD"}
     stepsInParallel: false
