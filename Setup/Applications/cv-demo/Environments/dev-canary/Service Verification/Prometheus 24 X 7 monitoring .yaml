@@ -1,11 +1,11 @@
 harnessApiVersion: '1.0'
 type: PROMETHEUS
-alertEnabled: false
-alertThreshold: 0.5
+alertEnabled: true
+alertThreshold: 0.10000000000000003
 analysisTolerance: LOW
 connectorName: Prometheus
 enabled24x7: true
-numOfOccurrencesForAlert: 1
+numOfOccurrencesForAlert: 2
 serviceName: canary-deploy-service
 timeSeriesList:
 - metricName: CPU-error
