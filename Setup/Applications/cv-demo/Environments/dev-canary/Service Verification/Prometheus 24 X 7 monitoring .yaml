@@ -5,7 +5,7 @@ alertThreshold: 2.7755575615628914E-17
 analysisTolerance: LOW
 connectorName: Prometheus
 enabled24x7: true
-numOfOccurrencesForAlert: 2
+numOfOccurrencesForAlert: 1
 serviceName: canary-deploy-service
 timeSeriesList:
 - metricName: CPU-error
