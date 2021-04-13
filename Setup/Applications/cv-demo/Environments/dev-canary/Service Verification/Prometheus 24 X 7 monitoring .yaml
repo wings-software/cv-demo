@@ -1,0 +1,14 @@
+harnessApiVersion: '1.0'
+type: PROMETHEUS
+alertEnabled: false
+alertThreshold: 0.5
+analysisTolerance: LOW
+connectorName: Prometheus
+enabled24x7: true
+numOfOccurrencesForAlert: 1
+serviceName: canary-deploy-service
+timeSeriesList:
+- metricName: CPU-error
+  metricType: INFRA
+  txnName: hardware
+  url: container_cpu_system_seconds_total{namespace="kaizen-canary",container="POD",failure_domain_beta_kubernetes_io_zone="eu-west-2a"}
