@@ -117,9 +117,12 @@ preDeploymentSteps:
 - type: EMAIL
   name: Akash Gupta
   properties:
-    body: Hey
+    body: 'Canary deployment trigger for ${app.name} - workflow: ${workflow.name}'
     ccAddress: manbir.bhullar@nationwide.co.uk
-    subject: 'Canary deployment trigger '
+    subject: 'Canary deployment trigger for ${app.name} - workflow: ${workflow.name}'
+    templateUuid: null
+    templateVariables: null
+    templateVersion: null
     toAddress: akash.gupta@nationwide.co.uk
 rollbackPhases:
 - type: KUBERNETES
