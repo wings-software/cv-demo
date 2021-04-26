@@ -89,13 +89,6 @@ phases:
   - type: K8S_PHASE_STEP
     name: Deploy
     steps:
-    - type: K8S_DEPLOYMENT_ROLLING
-      name: Rollout Deployment
-      properties:
-        stateTimeoutInMinutes: 10
-        templateUuid: null
-        templateVariables: null
-        templateVersion: null
     - type: APPROVAL
       name: Approval
       properties:
@@ -103,6 +96,13 @@ phases:
         timeoutMillis: 86400000
         userGroups:
         - E9c-x3KdTsCLYgUyuHQqLg
+    - type: K8S_DEPLOYMENT_ROLLING
+      name: Rollout Deployment
+      properties:
+        stateTimeoutInMinutes: 10
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Verify
