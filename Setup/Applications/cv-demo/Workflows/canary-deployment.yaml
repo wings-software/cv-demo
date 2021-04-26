@@ -17,6 +17,15 @@ notificationRules:
   userGroupAsExpression: false
   userGroupIds:
   - Lh9O151sSmC3_XapvUbb-w
+- conditions:
+  - SUCCESS
+  - FAILED
+  - PAUSED
+  executionScope: WORKFLOW
+  notificationGroupAsExpression: false
+  userGroupAsExpression: false
+  userGroupIds:
+  - E9c-x3KdTsCLYgUyuHQqLg
 phases:
 - type: KUBERNETES
   computeProviderName: Kubernetes Cluster - Kaizen Testing Delegate
