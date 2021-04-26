@@ -63,9 +63,9 @@ phases:
         templateVersion: null
         timeDuration: 5
         timeSeriesToAnalyze:
-        - metricName: CPU-infra
+        - metricName: 'swap memory '
           metricType: INFRA
-          txnName: hardware
+          txnName: infra
           url: container_cpu_usage_seconds_total{namespace="kaizen-canary",pod="$hostName",container="POD"}
     stepsInParallel: false
   - type: K8S_PHASE_STEP
