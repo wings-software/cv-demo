@@ -3,11 +3,14 @@ type: ELK
 alertEnabled: false
 alertPriority: P5
 alertThreshold: 0.5
+baselineEndMinute: 27015750
+baselineStartMinute: 27015721
 connectorName: ELK-cv-demo
 enabled24x7: true
 hostnameField: hostname
 index: cv-demo
 messageField: message
+numOfOccurrencesForAlert: 1
 query: level:ERROR
 serviceName: cv-demo
 timestampField: '@timestamp'
