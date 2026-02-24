@@ -1,0 +1,26 @@
+template:
+  name: StageTRemo1
+  identifier: StageTRemo1
+  versionLabel: v1
+  type: Stage
+  orgIdentifier: Ng_Pipelines_K8s_Organisations
+  tags: {}
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - step:
+              type: ShellScript
+              name: ShellScript_1
+              identifier: ShellScript_1
+              spec:
+                shell: Bash
+                executionTarget: {}
+                source:
+                  type: Inline
+                  spec:
+                    script: echo "Hello"
+                environmentVariables: []
+                outputVariables: []
+              timeout: 10m
